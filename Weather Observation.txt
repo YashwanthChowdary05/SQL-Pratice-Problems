@@ -43,3 +43,125 @@ FROM STATION
 ORDER BY LENGTH(CITY) DESC, CITY
 LIMIT 1;
 
+
+
+
+Weather Observation 6
+
+17. Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE CITY LIKE 'A%'
+    OR CITY LIKE 'E%'
+    OR CITY LIKE 'I%'
+    OR CITY LIKE 'O%'
+    OR CITY LIKE 'U%';
+
+
+
+
+Weather Observation 7
+
+18. Query the list of CITY names ending with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE CITY LIKE '%a'
+    OR CITY LIKE '%e'
+    OR CITY LIKE '%i'
+    OR CITY LIKE '%o'
+    OR CITY LIKE '%u';
+
+
+
+
+Weather Observation 7
+
+19. Query the list of CITY names start or end with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE LEFT(CITY, 1) IN ('A', 'E', 'I', 'O', 'U') 
+AND RIGHT(CITY, 1) IN ('a', 'e', 'i', 'o', 'u');
+
+NOTE:-  RIGHT() function extracts a number of characters from a string (starting from right)
+	LEFT() function extracts a number of characters from a string (starting from left)
+
+
+
+Weather Observation 8
+
+20. Query the list of CITY names not start with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE CITY NOT LIKE 'A%'
+    AND CITY NOT LIKE 'E%'
+    AND CITY NOT LIKE 'I%'
+    AND CITY NOT LIKE 'O%'
+    AND CITY NOT LIKE 'U%';
+
+
+
+
+Weather Observation 9
+
+21. Query the list of CITY names not start with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE CITY NOT LIKE 'A%'
+    AND CITY NOT LIKE 'E%'
+    AND CITY NOT LIKE 'I%'
+    AND CITY NOT LIKE 'O%'
+    AND CITY NOT LIKE 'U%';
+
+
+
+Weather Observation 10
+
+21. Query the list of CITY names not end with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE CITY NOT LIKE '%a'
+    AND CITY NOT LIKE '%e'
+    AND CITY NOT LIKE '%i'
+    AND CITY NOT LIKE '%o'
+    AND CITY NOT LIKE '%u';
+
+
+
+
+Weather Observation 11
+
+22. Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE LEFT(CITY, 1) NOT IN ('A', 'E', 'I', 'O', 'U') 
+OR RIGHT(CITY, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+
+
+
+
+Weather Observation 12
+
+23. Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+SELECT DISTINCT CITY FROM STATION 
+WHERE LEFT(CITY, 1) NOT IN ('A', 'E', 'I', 'O', 'U') 
+AND RIGHT(CITY, 1) NOT IN ('a', 'e', 'i', 'o', 'u');
+
+
+
+
+24. Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+SELECT NAME FROM STUDENTS 
+WHERE MARKS > 75
+ORDER BY RIGHT(NAME,3), ID;
+
+
+
+25. Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+
+SELECT NAME FROM EMPLOYEE ORDER BY NAME ASC;
+
+
