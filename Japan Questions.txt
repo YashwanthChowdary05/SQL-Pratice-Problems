@@ -1,0 +1,97 @@
+7. Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
+
+SELECT * FROM CITY 
+WHERE COUNTRYCODE = 'JPN';
+
+NOTE:- Here they asked to retrieve city names in JAPAN by using COUNTRYCODE
+
+
+
+
+
+8. Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.
+
+SELECT NAME FROM CITY 
+WHERE COUNTRYCODE = 'JPN';
+
+
+
+
+
+9. Query the difference between the maximum and minimum populations in CITY.
+
+SELECT MAX(POPULATION) - MIN(POPULATION) FROM CITY;
+
+NOTE:- Here we use MAX and MIN to the difference between the two cities.
+
+
+
+
+
+10. Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+
+Write a query calculating the amount of error (i.e.: actual - miscalculation average monthly salaries), and round it up to the next integer.
+
+
+SELECT CAST(CEILING(AVG(CAST(SALARY AS DECIMAL)) - AVG(CAST(REPLACE(SALARY, 0, '') AS DECIMAL))) AS INTEGER) FROM EMPLOYEES;
+
+NOTE:- Here we used CAST, CEILING and REPLACE functions 
+	CAST is used to convert the datatype into other datatype
+	CEILING is used to round of the decimal to nearest number
+	REPLACE is used to replace the current one with previous one
+
+
+
+
+
+11. We define an employee's total earnings to be their monthly salary X months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total 
+earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers.
+
+SELECT MAX(EARNINGS), COUNT(*) FROM(SELECT(SALARY * MONTHS) AS EARNINGS FROM EMPLOYEE)
+AS EARNINGS_TABLE WHERE EARNINGS = (SELECT MAX(MONTHS*SALARY) FROM EMPLOYEE);
+
+
+
+
+
+12. Query the following two values from the STATION table:
+
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+
+SELECT ROUND(SUM(LAT_N), 2), ROUND(SUM(LONG_W), 2) FROM STATION;
+
+NOTE:- Here ROUND, rounds values to a specified number of decimal places
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
